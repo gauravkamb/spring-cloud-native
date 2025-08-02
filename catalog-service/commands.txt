@@ -1,0 +1,38 @@
+--Run application
+./gradlew bootRun
+
+--Build docker image
+./gradlew bootBuildImage
+
+--Run docker image
+docker run --rm --name catalog-service -p 8080:8080 catalog-service:0.0.2-SNAPSHOT
+
+--start kubernates cluster
+minikube start
+
+--load image into kubernates
+minikube image load catalog-service:0.0.2-SNAPSHOT
+
+--create deployment - to manage pods
+kubectl create deployment catalog-service --image=catalog-service:0.0.2-SNAPSHOT
+
+-- see deployment
+kubectl get deployment
+
+-- get the pod
+kubectl get pod
+
+--create service - to expose application running on pod managed by deployment to another services from cluster
+kubectl expose deployment catalog-service --name=catalog-service --port=8080
+
+--Port forwading from local maching port to kubernates cluster port
+kubectl port-forward service/catalog-service 8000:8080 Forwarding from 127.0.0.1:8000 -> 8080 Forwarding from [::1]:8000 -> 8080
+
+--delete service
+kubectl delete service catalog-service
+
+--delete deployment
+kubectl delete deployment catalog-service
+
+--stop kubernates
+minikube stop
