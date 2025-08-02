@@ -1,8 +1,10 @@
 name: Commit Stage
 on:
-  push:
-    branches:
-      - develop
+    push:
+        branches:
+            - develop
+        paths:
+          - 'spring-cloud-native/**'
 
 jobs:
   build:
