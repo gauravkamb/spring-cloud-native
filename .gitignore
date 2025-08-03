@@ -1,0 +1,15 @@
+# Ignore all .class and .jar files
+*.class
+*.jar
+*.bin
+*.probe
+
+# Ignore build output directories (typical for Java)
+out/
+target/
+build/
+
+# IntelliJ IDEA specific
+.idea/
+*.iml
+
