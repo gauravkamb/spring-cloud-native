@@ -1,6 +1,16 @@
 spring:
   application:
     name: catalog-service
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:6432/polardb_catalog
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+  sql:
+    init:
+      mode: always   # initialize db schema from script.sql
   config:
     import: "optional:configserver:"
   cloud:
