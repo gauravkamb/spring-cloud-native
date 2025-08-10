@@ -8,9 +8,9 @@ spring:
     hikari:
       connection-timeout: 2000
       maximum-pool-size: 5
-  sql:
-    init:
-      mode: always   # initialize db schema from script.sql
+#  sql:
+#    init:
+#      mode: always   # initialize db schema from script.sql
   config:
     import: "optional:configserver:"
   cloud:
