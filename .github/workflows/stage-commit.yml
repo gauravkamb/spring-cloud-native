@@ -8,7 +8,7 @@ on:
 
 jobs:
   catalog-service:
-    uses: .catalog-service/.github/workflows/commit-stage.yml
+    uses: ./catalog-service/.github/workflows/commit-stage.yml
 
 #  build:
 #    name: Build and Test ${{ matrix.project }}
