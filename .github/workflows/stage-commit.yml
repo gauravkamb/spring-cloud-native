@@ -5,8 +5,13 @@ on:
       - develop
 
 jobs:
-  catalog-service:
-    uses: ./catalog-service/.github/workflows/commit-stage.yml@develop
+  trigger-catalog-service:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger catalog-service
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          event-type: catalog-service-build
 
 #  build:
 #    name: Build and Test ${{ matrix.project }}
