@@ -1,14 +1,12 @@
-name: Commit Stage
+name: Commit Stage Parent Workflow
 on:
   push:
     branches:
       - develop
-  workflow_dispatch:
-
 
 jobs:
   catalog-service:
-    uses: ./catalog-service/.github/workflows/commit-stage.yml
+    uses: ./catalog-service/.github/workflows/commit-stage.yml@develop
 
 #  build:
 #    name: Build and Test ${{ matrix.project }}
