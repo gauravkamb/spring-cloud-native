@@ -1,0 +1,24 @@
+name: Parent Workflow
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  trigger-catalog-service:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Catalog Service Workflow
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          event-type: catalog-service-build
+
+#  trigger-order-service:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Trigger Order Service Workflow
+#        uses: peter-evans/repository-dispatch@v3
+#        with:
+#          event-type: order-service-build
